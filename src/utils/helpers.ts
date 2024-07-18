@@ -8,7 +8,7 @@ const createRow = (row: number, startTile: TileType, endTile: TileType) => {
       row,
       col,
       isStart: row === startTile.row && col === startTile.col,
-      isEnd: (row === endTile.row && col === endTile.col),
+      isEnd: row === endTile.row && col === endTile.col,
       isWall: false,
       isPath: false,
       distance: Infinity,
@@ -18,11 +18,11 @@ const createRow = (row: number, startTile: TileType, endTile: TileType) => {
   }
   return currentRow;
 }
+
 export const createGrid = (startTile: TileType, endTile: TileType) => {
   const grid: GridType = [];
   for (let row = 0; row < MAX_ROWS; row++) {
     grid.push(createRow(row, startTile, endTile));
   }
   return grid;
-
 }
